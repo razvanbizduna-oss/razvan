@@ -103,15 +103,22 @@ function ArchiveCarousel() {
     };
   }, []);
 
+  const pointerTypeRef = useRef<string>('mouse');
   const onPointerDown = (e: React.PointerEvent) => {
     draggingRef.current = true;
+    pointerTypeRef.current = e.pointerType;
     startXRef.current = e.clientX;
     startPosRef.current = posRef.current;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!draggingRef.current) return;
-    posRef.current = startPosRef.current + (e.clientX - startXRef.current);
+    // Pe telefon, o glisare cu degetul mișcă banda de poze mai mult decât
+    // distanța reală parcursă de deget — se simte mai rapidă și mai "sprintenă".
+    // Pe mouse rămâne 1:1, drag-ul clasic.
+    const rawDelta = e.clientX - startXRef.current;
+    const speedMultiplier = pointerTypeRef.current === 'touch' ? 1.7 : 1;
+    posRef.current = startPosRef.current + rawDelta * speedMultiplier;
   };
   const endDrag = () => { draggingRef.current = false; };
 
@@ -289,7 +296,7 @@ export default function About() {
           font-size:clamp(22px,3vw,32px); line-height:1.15; letter-spacing:-.02em; }
 
         /* ── ARCHIVE CAROUSEL — drifts on its own, drag/swipe takes over instantly ── */
-        .ic-carousel { position:relative; margin-bottom:56px; overflow:hidden; cursor:grab; touch-action:pan-y; }
+        .ic-carousel { position:relative; margin-bottom:56px; overflow:hidden; cursor:grab; touch-action:none; }
         .ic-carousel:active { cursor:grabbing; }
         .ic-carousel-track { display:flex; gap:18px; width:max-content; will-change:transform; }
         .ic-carousel-card { flex:0 0 auto; width:220px; background:var(--card); border-radius:6px;
@@ -304,9 +311,10 @@ export default function About() {
         .ic-carousel-edge--r { right:0; background:linear-gradient(to left, rgba(6,13,35,0.95), transparent); }
 
         @media(max-width:600px) {
-          .ic-carousel-card { width:150px; padding:8px 8px 28px; }
-          .ic-carousel-edge { width:44px; }
-          .ic-carousel-caption { font-size:10px; }
+          .ic-carousel-track { gap:10px; }
+          .ic-carousel-card { width:104px; padding:6px 6px 22px; border-radius:4px; }
+          .ic-carousel-edge { width:32px; }
+          .ic-carousel-caption { font-size:9px; bottom:6px; left:6px; right:6px; }
         }
 
         /* ── FOOTER STRIP ── */
