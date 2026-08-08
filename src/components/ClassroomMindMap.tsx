@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
  * closed the previous section. Same board, same pins, same hand.
  */
 
-const MEMBERS = [
+const MEMBERS = [ 
   {
     id: 1, index: "01", rot: 0, lift: 0,
     name: "Miruna Bichir", role: "Președinte", dept: "Conducere",
