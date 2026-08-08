@@ -549,7 +549,7 @@ export default function TeamPage() {
           <div className="tm-mission tm-e3" ref={mission.ref as React.RefObject<HTMLDivElement>}>
             <div className="tm-mission-grid">
               <div className="tm-mission-cadran">
-                <img className="photo" src="pozica.webp" alt="Bordul Interact Cismigiu în acțiune" loading="lazy" decoding="async" />
+                <img className="photo" src="board.jpg" alt="Bordul Interact Cismigiu în acțiune" loading="lazy" decoding="async" />
                 <div className="tm-mission-cadran-shade" />
                 <div className="tm-gear-wrap">
                   <img className="tm-gear-spin" src="rotary-wheel.webp" alt="Rotary International" loading="lazy" decoding="async" />
