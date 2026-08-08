@@ -13,7 +13,7 @@ const MEMBERS = [
   {
     id: 1, index: "01", rot: 0, lift: 0,
     name: "Theodora Coțofană", role: "Președinte", dept: "Conducere",
-    image: "thea.webp",
+    image: "thea.jpg",
   
     desc: "Coordonează toate cele șase departamente și reprezintă clubul în fața Rotary International și a partenerilor instituționali.",
   },
