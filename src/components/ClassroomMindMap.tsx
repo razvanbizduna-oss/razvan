@@ -63,7 +63,7 @@ const MEMBERS = [
     id: 8, index: "08", rot: 0, lift: 20,
     name: "Miruna Bichir", role: "Past President", dept: "Consultanță",
     phone: "+40 721 000 008", email: "pastprezi@interactcismigiu.ro",
-    image: "pastprezi.webp",
+    image: "miruna.webp",
     desc: "Rămâne în structura de conducere pentru a oferi consultanță, a asigura continuitatea strategiei și a ghida actuala conducere.",
   },
 ];
