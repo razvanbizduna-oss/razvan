@@ -9,7 +9,7 @@ import { useState, useEffect, useRef } from "react";
  * closed the previous section. Same board, same pins, same hand.
  */
 
-const MEMBERS = [ 
+const MEMBERS = [
   {
     id: 1, index: "01", rot: 0, lift: 0,
     name: "Miruna Bichir", role: "Președinte", dept: "Conducere",
@@ -219,15 +219,21 @@ function Reviews() {
     };
   }, []);
 
+  const pointerTypeRef = useRef<string>('mouse');
   const onPointerDown = (e: React.PointerEvent) => {
     draggingRef.current = true;
+    pointerTypeRef.current = e.pointerType;
     startXRef.current = e.clientX;
     startPosRef.current = posRef.current;
     (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId);
   };
   const onPointerMove = (e: React.PointerEvent) => {
     if (!draggingRef.current) return;
-    posRef.current = startPosRef.current + (e.clientX - startXRef.current);
+    // Pe telefon, o glisare cu degetul mișcă banda mai mult decât distanța
+    // reală parcursă de deget — se simte mai rapidă. Pe mouse rămâne 1:1.
+    const rawDelta = e.clientX - startXRef.current;
+    const speedMultiplier = pointerTypeRef.current === 'touch' ? 1.7 : 1;
+    posRef.current = startPosRef.current + rawDelta * speedMultiplier;
   };
   const endDrag = () => { draggingRef.current = false; };
 
@@ -441,7 +447,7 @@ export default function TeamPage() {
 
         /* ══ VOICES — reviews as an auto-scrolling carousel, drag/swipe takes over instantly ══ */
         .tm-voices { margin-bottom:56px; }
-        .tm-reviews { position:relative; overflow:hidden; cursor:grab; touch-action:pan-y; padding:10px 0 6px; }
+        .tm-reviews { position:relative; overflow:hidden; cursor:grab; touch-action:none; padding:10px 0 6px; }
         .tm-reviews:active { cursor:grabbing; }
         .tm-rv-track { display:flex; gap:16px; width:max-content; will-change:transform; }
 
@@ -470,8 +476,14 @@ export default function TeamPage() {
         .tm-rv-edge--r { right:0; background:linear-gradient(to left, rgba(6,13,35,0.95), transparent); }
 
         @media(max-width:600px) {
-          .tm-rv-card { width:230px; padding:18px 16px; }
-          .tm-rv-edge { width:44px; }
+          .tm-rv-track { gap:10px; }
+          .tm-rv-card { width:188px; padding:14px 13px; border-radius:12px; }
+          .tm-rv-quote { font-size:26px; margin-bottom:6px; }
+          .tm-rv-text { font-size:11px; margin-bottom:12px; }
+          .tm-rv-avatar { width:26px; height:26px; font-size:9px; }
+          .tm-rv-name { font-size:10.5px; }
+          .tm-rv-role { font-size:9px; }
+          .tm-rv-edge { width:32px; }
         }
 
         /* ══ FOOTER STRIP — same bookend as About ══ */
