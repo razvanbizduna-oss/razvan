@@ -12,8 +12,8 @@ import { useState, useEffect, useRef } from "react";
 const MEMBERS = [
   {
     id: 1, index: "01", rot: 0, lift: 0,
-    name: "Miruna Bichir", role: "Președinte", dept: "Conducere",
-    phone: "+40 721 000 001", email: "presedinte@interactcismigiu.ro",
+    name: "Theodora Coțofană", role: "Președinte", dept: "Conducere",
+   
     image: "miruna.webp",
     desc: "Coordonează toate cele șase departamente și reprezintă clubul în fața Rotary International și a partenerilor instituționali.",
   },
