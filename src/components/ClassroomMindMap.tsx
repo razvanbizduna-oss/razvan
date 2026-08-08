@@ -19,14 +19,14 @@ const MEMBERS = [
   },
   {
     id: 2, index: "02", rot: 0, lift: 16,
-    name: "Luca Gutuman", role: "Vicepreședinte", dept: "Conducere",
+    name: "Sebastian Scoarță", role: "Vicepreședinte", dept: "Conducere",
     phone: "+40 721 000 002", email: "vice@interactcismigiu.ro",
     image: "IMG_1347.webp",
     desc: "Asigură că fiecare voluntar se simte sprijinit și că proiectele nu se blochează în birocrație.",
   },
   {
     id: 3, index: "03", rot: 0, lift: 6,
-    name: "Anne Ionescu", role: "Treasurer", dept: "Gestionare Economii",
+    name: "Sophia Lăzărescu", role: "Treasurer", dept: "Gestionare Economii",
     phone: "+40 721 000 003", email: "ecologie@interactcismigiu.ro",
     image: "IMG_1352.webp",
     desc: "Responsabilul financiar care gestionează bugetul, încasează cotizațiile și monitorizează cheltuielile pentru a asigura transparența organizației.",
