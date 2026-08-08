@@ -89,7 +89,7 @@ const REVIEWS = [
 // the four brand colors, cycled — never more, never fewer
 const ACCENTS = ["var(--royal)", "var(--royal)", "var(--royal)", "var(--royal)"];
 
-const boardPhotos = ["pozica.webp", "IMG_1347.webp", "IMG_1352.webp", "IMG_1351.webp", "IMG_1349.webp", "IMG_1350.webp"];
+const boardPhotos = ["board.jpg", "IMG_1330.webp", "IMG_1331.webp", "IMG_1332.webp", "IMG_1333.webp", "IMG_1334.webp"];
 const bgTiles = [...boardPhotos, ...boardPhotos, ...boardPhotos, ...boardPhotos];
 
 function useReveal() {
