@@ -1,0 +1,590 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom animations */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes boomerang {
+  0%, 100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(10px);
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(245, 158, 11, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(245, 158, 11, 0.6);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+  opacity: 0;
+}
+
+.delay-200 {
+  animation-delay: 200ms;
+}
+
+.delay-400 {
+  animation-delay: 400ms;
+}
+
+.delay-600 {
+  animation-delay: 600ms;
+}
+
+.delay-800 {
+  animation-delay: 800ms;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F1EB;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(to bottom, #d97706, #059669);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(to bottom, #b45309, #047857);
+}
+
+/* Boomerang hover effect */
+.boomerang-hover:hover {
+  animation: boomerang 0.6s ease-in-out;
+}
+
+/* Custom gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #d97706, #059669);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card hover effects */
+.card-hover {
+  transition: all 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Pulse animation for special elements */
+.pulse-glow {
+  animation: pulse-glow 2s infinite;
+}
+
+/* Typography improvements */
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  line-height: 1.2;
+  font-weight: 600;
+}
+
+/* Custom color palette variables */
+:root {
+  --color-warm-beige: #F5F1EB;
+  --color-rich-brown: #8B4513;
+  --color-forest-green: #6B8E5A;
+  --color-amber-accent: #D97706;
+  --color-sage-green: #84A98C;
+}
+
+/* Focus states for accessibility */
+a:focus,
+button:focus {
+  outline: 2px solid #d97706;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Smooth scroll padding for fixed header */
+html {
+  scroll-padding-top: 140px;
+}
+
+/* Loading animation */
+@keyframes shimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  100% {
+    background-position: 468px 0;
+  }
+}
+
+.shimmer {
+  animation: shimmer 1.5s ease-in-out infinite;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 400% 100%;
+}
+
+/* Mind-map specific animations */
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.float-animation {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Circular node hover effects */
+.circular-node {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.circular-node:hover {
+  transform: scale(1.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Information panel slide-in animation */
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-panel {
+  animation: slideInFromRight 0.3s ease-out;
+}
+
+/* Responsive breakpoints for mind-map */
+@media (max-width: 768px) {
+  .mind-map-container {
+    padding: 1rem;
+  }
+  
+  .circular-node {
+    position: relative !important;
+    transform: none !important;
+    margin: 0.5rem;
+  }
+}
+
+/* Accessibility improvements */
+.circular-node:focus {
+  outline: 3px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+.circular-node:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .circular-node {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .circular-node,
+  .float-animation,
+  .slide-in-panel {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Enhanced shadow utilities */
+.shadow-3xl {
+  box-shadow: 0 35px 60px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Projects and News Card Enhancements */
+.project-card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-hover:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+.news-card-hover {
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.news-card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* Enhanced title visibility */
+.card-title {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.card-title-overlay {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  font-weight: 800;
+}
+
+/* 3-card layout optimization */
+@media (min-width: 1024px) {
+  .three-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  
+  .three-card-grid .card-item {
+    min-height: 400px;
+  }
+}
+
+/* Responsive card adjustments */
+@media (max-width: 1023px) {
+  .three-card-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .three-card-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+/* Modal enhancements */
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+/* Enhanced button styles */
+.btn-primary-enhanced {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: none;
+  color: white;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary-enhanced:hover {
+  background: linear-gradient(135deg, #2563eb, #1e40af);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+
+/* Card content spacing */
+.card-content {
+  padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .card-content {
+    padding: 2rem;
+  }
+}
+
+/* Image overlay improvements */
+.image-overlay {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+/* Text readability enhancements */
+.text-enhanced {
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+/* Loading states */
+.card-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Gallery specific animations */
+@keyframes photoZoom {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.photo-zoom {
+  animation: photoZoom 0.3s ease-out;
+}
+
+/* Lightbox backdrop blur */
+.lightbox-backdrop {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+/* Custom scrollbar for gallery */
+.gallery-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+
+.gallery-scroll::-webkit-scrollbar-track {
+  background: var(--color-beige-100);
+  border-radius: 4px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb {
+  background: var(--color-blue-400);
+  border-radius: 4px;
+}
+
+.gallery-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--color-blue-600);
+}
+
+/* Enhanced hover effects for club cards */
+.club-card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.club-card-hover:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Photo grid masonry effect */
+.photo-masonry {
+  column-count: 4;
+  column-gap: 1rem;
+}
+
+@media (max-width: 1024px) {
+  .photo-masonry {
+    column-count: 3;
+  }
+}
+
+@media (max-width: 768px) {
+  .photo-masonry {
+    column-count: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .photo-masonry {
+    column-count: 1;
+  }
+}
+
+.photo-masonry-item {
+  break-inside: avoid;
+  margin-bottom: 1rem;
+}
+
+/* Enhanced modal animations */
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-slide-in {
+  animation: modalSlideIn 0.4s ease-out;
+}
+
+/* Club photo carousel indicators */
+.carousel-indicator {
+  transition: all 0.3s ease;
+}
+
+.carousel-indicator.active {
+  transform: scale(1.2);
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+/* Enhanced button hover effects */
+.btn-enhanced:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery filter animations */
+@keyframes filterFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.filter-fade-in {
+  animation: filterFadeIn 0.5s ease-out;
+}
+
+/* Photo loading placeholder */
+.photo-loading {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Enhanced focus states for accessibility */
+.focus-enhanced:focus {
+  outline: 3px solid var(--color-blue-400);
+  outline-offset: 2px;
+  border-radius: 8px;
+}
+
+/* Club modal photo carousel */
+.photo-carousel {
+  position: relative;
+  overflow: hidden;
+}
+
+.photo-carousel-track {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+}
+
+.photo-carousel-slide {
+  min-width: 100%;
+  height: 400px;
+}
+
+/* Enhanced typography for club descriptions */
+.club-description {
+  line-height: 1.7;
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .club-description {
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Gallery lightbox enhancements */
+.lightbox-content {
+  max-height: 90vh;
+  overflow: hidden;
+}
+
+.lightbox-image {
+  max-height: 70vh;
+  object-fit: contain;
+}
+
+/* Enhanced loading states */
+.loading-skeleton {
+  background: linear-gradient(90deg, 
+    var(--color-beige-200) 25%, 
+    var(--color-beige-100) 50%, 
+    var(--color-beige-200) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Club achievement badges */
+.achievement-badge {
+  position: relative;
+  overflow: hidden;
+}
+
+.achievement-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.achievement-badge:hover::before {
+  left: 100%;
+}
+
+/* Enhanced responsive design */
+@media (max-width: 640px) {
+  .club-card-mobile {
+    margin-bottom: 2rem;
+  }
+  
+  .gallery-mobile-spacing {
+    padding: 1rem;
+  }
+  
+  .modal-mobile {
+    margin: 1rem;
+    max-height: calc(100vh - 2rem);
+  }
+}
