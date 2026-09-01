@@ -19,7 +19,7 @@ Câmpul cel mai important: `databaseURL` — ex: `https://interact-cismigiu-defa
 
 ---
 
-## Instalare
+## Instalare 
 
 ```bash
 npm install
